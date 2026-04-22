@@ -23,7 +23,7 @@ const PRODUCTS = [
   { id: 7,  cat: 'dresses',     title: 'shirt dress',       price: '$68',  desc: 'Belted shirt dress in lightweight cotton. Wear open as a duster too.', img: '', emoji: '👗' },
   { id: 8,  cat: 'outerwear',   title: 'oversized blazer',  price: '$95',  desc: 'Classic oversized blazer with a relaxed silhouette. Throw over anything.', img: '', emoji: '🧥' },
   { id: 9,  cat: 'outerwear',   title: 'trench coat',       price: '$120', desc: 'A clean, minimalist trench with a modern fit and subtle belt.', img: '', emoji: '🧥' },
-  { id: 18, cat: 'accessories', title: 'pash scarf', price: '$30', desc: 'Soft oversized pashimina scarf. Drapes beautifully — wear it as a wrap, shawl, or accessory.', imgs: ['outfit-board/pash-scarf.png'], emoji: '🧣' },
+  { id: 18, cat: 'accessories', title: 'pash scarf', price: '$30', desc: 'Soft oversized pashimina scarf. Drapes beautifully — wear it as a wrap, shawl, or accessory.', imgs: ['outfit-board/pash.png'], emoji: '🧣' },
   { id: 10, cat: 'accessories', title: 'tote bag',          price: '$42',  desc: 'Sturdy canvas tote — roomy enough for everything, simple enough for everywhere.', img: '', emoji: '👜' },
   { id: 11, cat: 'accessories', title: 'leather belt',      price: '$30',  desc: 'Slim leather belt in black. The detail that ties everything together.', img: '', emoji: '👛' },
   { id: 12, cat: 'accessories', title: 'hair claw',         price: '$12',  desc: 'Oversized acetate claw clip. An everyday essential.', img: '', emoji: '🪮' },

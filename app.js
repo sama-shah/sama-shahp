@@ -1,13 +1,10 @@
 // ── CONFIG ──────────────────────────────────────────────────────────────
 const PHONE = '9255499111';
 
-function haptic() {
-  const t = document.getElementById('haptic-trigger');
-  if (t) t.click();
-}
-
 // ── PRODUCTS ─────────────────────────────────────────────────────────────
+// cat: primary category. cats: optional array for listings that span multiple categories.
 const PRODUCTS = [
+  { id: 16, cat: 'tops', cats: ['tops', 'bottoms'], title: 'sunset set', price: '$65', desc: 'Matching sunset print crop top + midi skirt. Sold as a set or separately — just mention in your message.', img: 'outfit-board/sunset-dress.png', emoji: '🌅' },
   { id: 1,  cat: 'tops',        title: 'ribbed tank',       price: '$28',  desc: 'Fitted ribbed tank in a soft stretch fabric. Great for layering or on its own.', img: '', emoji: '👕' },
   { id: 2,  cat: 'tops',        title: 'linen button-down', price: '$45',  desc: 'Relaxed linen button-down with a boxy cut. Natural and breathable.', img: '', emoji: '👔' },
   { id: 3,  cat: 'tops',        title: 'cropped knit',      price: '$38',  desc: 'Short and sweet cropped knit in a cozy medium-weight yarn.', img: '', emoji: '🧶' },
@@ -29,7 +26,7 @@ const PRODUCTS = [
 function renderGrid(cat) {
   const grid = document.getElementById('grid');
   const empty = document.getElementById('empty');
-  const items = cat === 'all' ? PRODUCTS : PRODUCTS.filter(p => p.cat === cat);
+  const items = cat === 'all' ? PRODUCTS : PRODUCTS.filter(p => p.cats ? p.cats.includes(cat) : p.cat === cat);
 
   if (items.length === 0) {
     grid.innerHTML = '';
@@ -40,7 +37,7 @@ function renderGrid(cat) {
   empty.classList.add('hidden');
 
   grid.innerHTML = items.map(p => `
-    <article class="card" ontouchstart="haptic()" onclick="openModal(${p.id})">
+    <article class="card" onclick="openModal(${p.id})">
       <div class="card-img-wrap">
         ${p.img
           ? `<img src="${p.img}" alt="${p.title}" loading="lazy" />`
@@ -48,7 +45,7 @@ function renderGrid(cat) {
         }
       </div>
       <div class="card-body">
-        <p class="card-cat">${p.cat}</p>
+        <p class="card-cat">${p.cats ? p.cats.join(' · ') : p.cat}</p>
         <p class="card-title">${p.title}</p>
         <p class="card-price">${p.price}</p>
       </div>
@@ -58,7 +55,6 @@ function renderGrid(cat) {
 
 // ── FILTER ───────────────────────────────────────────────────────────────
 function filterCat(btn, cat) {
-  haptic();
   document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
   renderGrid(cat);
@@ -84,7 +80,6 @@ function openModal(id) {
   const body = encodeURIComponent(`hi sama! i'm interested in the ${p.title} (${p.price}) from sama shahp 🖤`);
   document.getElementById('modal-sms').href = `sms:${PHONE}&body=${body}`;
 
-  haptic();
   document.getElementById('modal').classList.remove('hidden');
   document.body.style.overflow = 'hidden';
 }

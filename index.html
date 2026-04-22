@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>sama shahp</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="header-inner">
+      <a href="#" class="logo-link" onclick="showAll()">
+        <img src="sama-shop-logo.png" alt="sama shahp" class="logo" />
+        <span class="wordmark">sama<em>shahp</em></span>
+        <span class="tagline"><em>shahp from sama b4 the summa ;)</em></span>
+      </a>
+    </div>
+  </header>
+
+  <!-- CATEGORY NAV -->
+  <nav class="cat-nav">
+    <ul>
+      <li><button class="cat-btn active" data-cat="all" onclick="filterCat(this,'all')">all</button></li>
+      <li><button class="cat-btn" data-cat="tops" onclick="filterCat(this,'tops')">tops</button></li>
+      <li><button class="cat-btn" data-cat="bottoms" onclick="filterCat(this,'bottoms')">bottoms</button></li>
+      <li><button class="cat-btn" data-cat="dresses" onclick="filterCat(this,'dresses')">dresses</button></li>
+      <li><button class="cat-btn" data-cat="outerwear" onclick="filterCat(this,'outerwear')">outerwear</button></li>
+      <li><button class="cat-btn" data-cat="accessories" onclick="filterCat(this,'accessories')">accessories</button></li>
+      <li><button class="cat-btn" data-cat="apartment" onclick="filterCat(this,'apartment')">apartment</button></li>
+    </ul>
+  </nav>
+
+  <!-- PRODUCT GRID -->
+  <main id="grid" class="grid"></main>
+
+  <!-- EMPTY STATE -->
+  <div id="empty" class="empty hidden">
+    <p>nothing here yet</p>
+  </div>
+
+  <!-- PRODUCT MODAL -->
+  <div id="modal" class="modal hidden" onclick="closeModal(event)">
+    <div class="modal-card">
+      <button class="modal-close" onclick="closeModalBtn()">✕</button>
+      <div class="modal-img-wrap">
+        <img id="modal-img" src="" alt="" />
+      </div>
+      <div class="modal-info">
+        <p id="modal-cat" class="modal-cat"></p>
+        <h2 id="modal-title"></h2>
+        <p id="modal-price" class="modal-price"></p>
+        <p id="modal-desc" class="modal-desc"></p>
+        <a id="modal-sms" href="#" class="sms-btn">start chat to order</a>
+        <p class="sms-note">opens a text to sama — just say what you want!</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

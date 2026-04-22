@@ -409,6 +409,11 @@ header {
 
 .outfit-board::-webkit-scrollbar { display: none; }
 
+.outfit-card.small .outfit-img-wrap img {
+  object-fit: contain;
+  padding: 12px;
+}
+
 .outfit-card {
   flex: 0 0 200px;
   scroll-snap-align: start;

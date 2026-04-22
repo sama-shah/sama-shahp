@@ -50,22 +50,17 @@
   <div id="modal" class="modal hidden" onclick="closeModal(event)">
     <div class="modal-card">
       <button class="modal-close" onclick="closeModalBtn()">✕</button>
-      <div class="modal-img-wrap">
-        <img id="modal-img" src="" alt="" />
-      </div>
+      <div class="modal-img-wrap" id="modal-gallery"></div>
       <div class="modal-info">
         <p id="modal-cat" class="modal-cat"></p>
         <h2 id="modal-title"></h2>
-        <p id="modal-price" class="modal-price"></p>
+        <div id="modal-price" class="modal-price"></div>
         <p id="modal-desc" class="modal-desc"></p>
         <a id="modal-sms" href="#" class="sms-btn">start chat to order</a>
         <p class="sms-note">opens a text to sama — just say what you want!</p>
       </div>
     </div>
   </div>
-
-  <!-- hidden haptic trigger -->
-  <input type="checkbox" id="haptic-trigger" aria-hidden="true" tabindex="-1" />
 
   <script src="app.js"></script>
 </body>

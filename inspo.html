@@ -165,19 +165,18 @@
       </div>
     </div>
 
+    <div class="outfit-card">
+      <div class="outfit-img-wrap">
+        <img src="outfit-board/red-dress.png" alt="red mini dress" />
+      </div>
+      <div class="outfit-caption">
+        <p class="outfit-label">look 14</p>
+        <p class="outfit-tags">red mini dress</p>
+      </div>
+    </div>
+
   </div></div>
 
-  <!-- hidden haptic trigger -->
-  <input type="checkbox" id="haptic-trigger" aria-hidden="true" tabindex="-1" />
-  <script>
-    function haptic() {
-      const t = document.getElementById('haptic-trigger');
-      if (t) t.click();
-    }
-    document.querySelectorAll('.outfit-card').forEach(c => {
-      c.addEventListener('touchstart', haptic, { passive: true });
-    });
-  </script>
 
 </body>
 </html>

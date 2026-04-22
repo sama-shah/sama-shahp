@@ -409,6 +409,10 @@ header {
 
 .outfit-board::-webkit-scrollbar { display: none; }
 
+.outfit-card.bright .outfit-img-wrap img {
+  filter: brightness(1.25) contrast(0.95);
+}
+
 .outfit-card.small .outfit-img-wrap img {
   object-fit: contain;
   padding: 12px;

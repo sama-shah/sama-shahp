@@ -10,6 +10,7 @@ const PRODUCTS = [
     prices: { top: '$35', skirt: '$38', set: '$65' },
     desc: 'Matching sunset print crop top + midi skirt. Buy together or separately — just mention which in your message.',
     imgs: ['outfit-board/sunset-dress.png'],
+    imgFit: 'contain',
     emoji: '🌅'
   },
   { id: 1,  cat: 'tops',        title: 'ribbed tank',       price: '$28',  desc: 'Fitted ribbed tank in a soft stretch fabric. Great for layering or on its own.', img: '', emoji: '👕' },
@@ -17,11 +18,12 @@ const PRODUCTS = [
   { id: 3,  cat: 'tops',        title: 'cropped knit',      price: '$38',  desc: 'Short and sweet cropped knit in a cozy medium-weight yarn.', img: '', emoji: '🧶' },
   { id: 4,  cat: 'bottoms',     title: 'wide-leg trousers', price: '$62',  desc: 'High-waisted wide-leg trousers with a clean drape. Effortlessly put-together.', img: '', emoji: '👖' },
   { id: 5,  cat: 'bottoms',     title: 'mini skirt',        price: '$34',  desc: 'A simple, flattering mini in a soft ponte fabric.', img: '', emoji: '🩱' },
-  { id: 17, cat: 'dresses', title: 'red mini dress', price: '$45', desc: 'Fitted red mini dress with spaghetti straps. Simple, bold, and perfect for a night out.', imgs: ['outfit-board/red-dress.png'], emoji: '🔴' },
+  { id: 17, cat: 'dresses', title: 'red mini dress', price: '$45', desc: 'Fitted red mini dress with spaghetti straps. Simple, bold, and perfect for a night out.', imgs: ['outfit-board/red-dress.png'], imgFit: 'contain', emoji: '🔴' },
   { id: 6,  cat: 'dresses',     title: 'slip dress',        price: '$55',  desc: 'Satin-finish slip dress with adjustable straps. Pairs with everything.', img: '', emoji: '👗' },
   { id: 7,  cat: 'dresses',     title: 'shirt dress',       price: '$68',  desc: 'Belted shirt dress in lightweight cotton. Wear open as a duster too.', img: '', emoji: '👗' },
   { id: 8,  cat: 'outerwear',   title: 'oversized blazer',  price: '$95',  desc: 'Classic oversized blazer with a relaxed silhouette. Throw over anything.', img: '', emoji: '🧥' },
   { id: 9,  cat: 'outerwear',   title: 'trench coat',       price: '$120', desc: 'A clean, minimalist trench with a modern fit and subtle belt.', img: '', emoji: '🧥' },
+  { id: 18, cat: 'accessories', title: 'pash scarf', price: '$30', desc: 'Soft oversized pashimina scarf. Drapes beautifully — wear it as a wrap, shawl, or accessory.', imgs: ['outfit-board/pash-scarf.png'], emoji: '🧣' },
   { id: 10, cat: 'accessories', title: 'tote bag',          price: '$42',  desc: 'Sturdy canvas tote — roomy enough for everything, simple enough for everywhere.', img: '', emoji: '👜' },
   { id: 11, cat: 'accessories', title: 'leather belt',      price: '$30',  desc: 'Slim leather belt in black. The detail that ties everything together.', img: '', emoji: '👛' },
   { id: 12, cat: 'accessories', title: 'hair claw',         price: '$12',  desc: 'Oversized acetate claw clip. An everyday essential.', img: '', emoji: '🪮' },
@@ -50,7 +52,7 @@ function renderGrid(cat) {
   grid.innerHTML = items.map(p => {
     const imgs = getImgs(p);
     const thumb = imgs.length
-      ? `<img src="${imgs[0]}" alt="${p.title}" loading="lazy" />`
+      ? `<img src="${imgs[0]}" alt="${p.title}" loading="lazy" style="${p.imgFit ? `object-fit:${p.imgFit};` : ''}" />`
       : `<div class="card-img-placeholder">${p.emoji}</div>`;
     return `
       <article class="card" onclick="openModal(${p.id})">

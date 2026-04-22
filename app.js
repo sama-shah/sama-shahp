@@ -1,6 +1,11 @@
 // ── CONFIG ──────────────────────────────────────────────────────────────
 const PHONE = '9255499111';
 
+function haptic() {
+  const t = document.getElementById('haptic-trigger');
+  if (t) t.click();
+}
+
 // ── PRODUCTS ─────────────────────────────────────────────────────────────
 const PRODUCTS = [
   { id: 1,  cat: 'tops',        title: 'ribbed tank',       price: '$28',  desc: 'Fitted ribbed tank in a soft stretch fabric. Great for layering or on its own.', img: '', emoji: '👕' },
@@ -35,7 +40,7 @@ function renderGrid(cat) {
   empty.classList.add('hidden');
 
   grid.innerHTML = items.map(p => `
-    <article class="card" onclick="openModal(${p.id})">
+    <article class="card" ontouchstart="haptic()" onclick="openModal(${p.id})">
       <div class="card-img-wrap">
         ${p.img
           ? `<img src="${p.img}" alt="${p.title}" loading="lazy" />`
@@ -53,6 +58,7 @@ function renderGrid(cat) {
 
 // ── FILTER ───────────────────────────────────────────────────────────────
 function filterCat(btn, cat) {
+  haptic();
   document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
   renderGrid(cat);
@@ -78,6 +84,7 @@ function openModal(id) {
   const body = encodeURIComponent(`hi sama! i'm interested in the ${p.title} (${p.price}) from sama shahp 🖤`);
   document.getElementById('modal-sms').href = `sms:${PHONE}&body=${body}`;
 
+  haptic();
   document.getElementById('modal').classList.remove('hidden');
   document.body.style.overflow = 'hidden';
 }

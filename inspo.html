@@ -33,7 +33,7 @@
 
   <!-- OUTFIT BOARD -->
   <!-- To add an outfit: copy a .outfit-card block, set the img src and fill in the caption/tags -->
-  <div class="outfit-board">
+  <div class="outfit-board-wrap"><div class="outfit-board">
 
     <div class="outfit-card tall">
       <div class="outfit-img-wrap">
@@ -165,7 +165,19 @@
       </div>
     </div>
 
-  </div>
+  </div></div>
+
+  <!-- hidden haptic trigger -->
+  <input type="checkbox" id="haptic-trigger" aria-hidden="true" tabindex="-1" />
+  <script>
+    function haptic() {
+      const t = document.getElementById('haptic-trigger');
+      if (t) t.click();
+    }
+    document.querySelectorAll('.outfit-card').forEach(c => {
+      c.addEventListener('touchstart', haptic, { passive: true });
+    });
+  </script>
 
 </body>
 </html>

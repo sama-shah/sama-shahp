@@ -12,6 +12,14 @@
 
 html { scroll-behavior: smooth; }
 
+#haptic-trigger {
+  position: fixed;
+  opacity: 0;
+  pointer-events: none;
+  width: 0;
+  height: 0;
+}
+
 body {
   font-family: 'Inter', system-ui, sans-serif;
   background: var(--bg);
@@ -394,17 +402,21 @@ header {
 }
 
 /* masonry-style board */
-.outfit-board {
-  max-width: 100%;
+.outfit-board-wrap {
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
   padding: 40px 0 80px;
+}
+
+.outfit-board {
   display: flex;
   flex-direction: row;
   gap: 14px;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   scrollbar-width: none;
-  padding-left: 32px;
-  padding-right: 32px;
+  padding: 0 32px;
 }
 
 .outfit-board::-webkit-scrollbar { display: none; }
@@ -491,7 +503,8 @@ header {
   .grid { padding: 28px 20px 60px; gap: 20px 14px; grid-template-columns: repeat(2, 1fr); }
   .inspo-hero { padding: 32px 20px 24px; }
   .inspo-title { font-size: 30px; }
-  .outfit-board { padding: 28px 20px 60px; }
+  .outfit-board-wrap { padding: 28px 0 60px; }
+  .outfit-board { padding: 0 20px; }
 
   .modal-card { grid-template-columns: 1fr; max-height: 88vh; }
   .modal-img-wrap { border-radius: 8px 8px 0 0; }

@@ -395,19 +395,26 @@ header {
 
 /* masonry-style board */
 .outfit-board {
-  max-width: 1300px;
-  margin: 0 auto;
-  padding: 40px 32px 80px;
-  columns: 3;
-  column-gap: 20px;
+  max-width: 100%;
+  padding: 40px 0 80px;
+  display: flex;
+  flex-direction: row;
+  gap: 14px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  padding-left: 32px;
+  padding-right: 32px;
 }
 
+.outfit-board::-webkit-scrollbar { display: none; }
+
 .outfit-card {
-  break-inside: avoid;
-  margin-bottom: 20px;
+  flex: 0 0 200px;
+  scroll-snap-align: start;
   border-radius: 6px;
   overflow: hidden;
-  background: var(--surface);
+  background: var(--bg);
   cursor: pointer;
   transition: opacity 0.2s;
 }
@@ -417,22 +424,11 @@ header {
 .outfit-img-wrap {
   width: 100%;
   overflow: hidden;
-  background: #efefed;
+  background: var(--bg);
 }
 
-/* default portrait */
 .outfit-img-wrap {
   aspect-ratio: 3 / 4;
-}
-
-/* tall variant — extra height */
-.outfit-card.tall .outfit-img-wrap {
-  aspect-ratio: 2 / 3;
-}
-
-/* wide variant — landscape */
-.outfit-card.wide .outfit-img-wrap {
-  aspect-ratio: 4 / 3;
 }
 
 .outfit-img-wrap img {
@@ -477,7 +473,6 @@ header {
 
 /* ── RESPONSIVE ── */
 @media (max-width: 900px) {
-  .outfit-board { columns: 2; }
   .tagline { display: none; }
 }
 
@@ -487,7 +482,7 @@ header {
   .grid { padding: 28px 20px 60px; gap: 20px 14px; grid-template-columns: repeat(2, 1fr); }
   .inspo-hero { padding: 32px 20px 24px; }
   .inspo-title { font-size: 30px; }
-  .outfit-board { padding: 28px 20px 60px; columns: 2; column-gap: 14px; }
+  .outfit-board { padding: 28px 20px 60px; }
 
   .modal-card { grid-template-columns: 1fr; max-height: 88vh; }
   .modal-img-wrap { border-radius: 8px 8px 0 0; }

@@ -3,6 +3,7 @@ const PHONE = '9255499111';
 
 const haptic = (type = 'nudge') => window.__haptic?.(type);
 
+
 // ── PRODUCTS ─────────────────────────────────────────────────────────────
 // cat: primary category. cats: optional array for listings that span multiple categories.
 const PRODUCTS = [
@@ -70,7 +71,7 @@ function renderGrid(cat) {
 
 // ── FILTER ───────────────────────────────────────────────────────────────
 function filterCat(btn, cat) {
-  haptic('nudge');
+  haptic(30);
   document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
   renderGrid(cat);

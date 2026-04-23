@@ -177,6 +177,14 @@
 
   </div></div>
 
+  <script type="module">
+    import { WebHaptics } from 'https://esm.sh/web-haptics';
+    const h = new WebHaptics();
+    h.setDebug(true);
+    document.querySelectorAll('.outfit-card').forEach(c => {
+      c.addEventListener('touchstart', () => h.trigger('nudge'), { passive: true });
+    });
+  </script>
 
 </body>
 </html>

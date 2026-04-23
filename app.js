@@ -1,6 +1,8 @@
 // ── CONFIG ──────────────────────────────────────────────────────────────
 const PHONE = '9255499111';
 
+const haptic = (type = 'nudge') => window.__haptic?.(type);
+
 // ── PRODUCTS ─────────────────────────────────────────────────────────────
 // cat: primary category. cats: optional array for listings that span multiple categories.
 const PRODUCTS = [
@@ -55,7 +57,7 @@ function renderGrid(cat) {
       ? `<img src="${imgs[0]}" alt="${p.title}" loading="lazy" style="${p.imgFit ? `object-fit:${p.imgFit};` : ''}" />`
       : `<div class="card-img-placeholder">${p.emoji}</div>`;
     return `
-      <article class="card" onclick="openModal(${p.id})">
+      <article class="card" ontouchstart="haptic('nudge')" onclick="openModal(${p.id})">
         <div class="card-img-wrap">${thumb}</div>
         <div class="card-body">
           <p class="card-cat">${p.cats ? p.cats.join(' · ') : p.cat}</p>
@@ -68,6 +70,7 @@ function renderGrid(cat) {
 
 // ── FILTER ───────────────────────────────────────────────────────────────
 function filterCat(btn, cat) {
+  haptic('nudge');
   document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
   renderGrid(cat);
@@ -104,6 +107,7 @@ function openModal(id) {
   const body  = encodeURIComponent(`hi sama! i'm interested in ${label} from sama shahp 🖤`);
   document.getElementById('modal-sms').href = `sms:${PHONE}&body=${body}`;
 
+  haptic('success');
   document.getElementById('modal').classList.remove('hidden');
   document.body.style.overflow = 'hidden';
 }

@@ -56,12 +56,18 @@
         <h2 id="modal-title"></h2>
         <div id="modal-price" class="modal-price"></div>
         <p id="modal-desc" class="modal-desc"></p>
-        <a id="modal-sms" href="#" class="sms-btn">start chat to order</a>
+        <a id="modal-sms" href="#" class="sms-btn" ontouchstart="haptic('success')">start chat to order</a>
         <p class="sms-note">opens a text to sama — just say what you want!</p>
       </div>
     </div>
   </div>
 
+  <script type="module">
+    import { WebHaptics } from 'https://esm.sh/web-haptics';
+    const h = new WebHaptics();
+    h.setDebug(true); // plays audio on desktop so you can test — remove when done
+    window.__haptic = (type = 'nudge') => h.trigger(type);
+  </script>
   <script src="app.js"></script>
 </body>
 </html>
